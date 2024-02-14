@@ -239,11 +239,12 @@
                         <div class="rbt-card-img">
                             <a href="course-details.html">
                                 <img [src]="COURSE.image" alt="Card image">
-                                    <div class="rbt-badge-3 bg-white" *ngIf="COURSE.discount_g">
+                                <div class="rbt-badge-3 bg-white" *ngIf="COURSE.discount_g">
                                     <span *ngIf="COURSE.discount_g.type_discount == 1">-{{COURSE.discount_g.discount}}%</span>
                                     <span *ngIf="COURSE.discount_g.type_discount == 2">-{{COURSE.discount_g.discount}} MXN</span>
                                     <span>Off</span>
-                                    </div>
+                                </div>
+                                
                             </a>
                         </div>
                         <div class="rbt-card-body">
