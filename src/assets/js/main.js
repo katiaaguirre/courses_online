@@ -1047,3 +1047,113 @@ function banner_home(){
         },
     });
 }
+
+function courseView() {
+    var gridViewBtn = $('.rbt-grid-view'),
+        listViewBTn = $('.rbt-list-view');
+
+        $(gridViewBtn).on('click', function () {
+            $(this).addClass('active').parent('.course-switch-item').siblings().children().removeClass('active');
+            $('.rbt-course-grid-column').addClass('active-grid-view');
+            $('.rbt-course-grid-column').removeClass('active-list-view');
+            $('.rbt-card').removeClass('card-list-2');
+        })
+
+        $(listViewBTn).on('click', function () {
+            $(this).addClass('active').parent('.course-switch-item').siblings().children().removeClass('active');
+            $('.rbt-course-grid-column').removeClass('active-grid-view');
+            $('.rbt-course-grid-column').addClass('active-list-view');
+            $('.rbt-card').addClass('card-list-2');
+        })
+}
+
+function showMoreBtn() {
+    $.fn.hasShowMore = function () {
+        return this.each(function () {
+            $(this).toggleClass('active');
+            $(this).text('Show Less');
+            $(this).parent('.has-show-more').toggleClass('active');
+            if ($(this).parent('.has-show-more').hasClass('active')) {
+                $(this).text('Show Less');
+            } else {
+                $(this).text('Show More');
+            }
+        });
+    };
+    $(document).on('click', '.rbt-show-more-btn', function () {
+        $(this).hasShowMore();
+    });
+}
+
+function magnigyPopup() {
+        $('.popup-video').magnificPopup({
+            type: 'iframe'
+        });
+}
+
+function alertDanger(TEXT){
+    const notification = document.getElementById("notification-ecommerce-danger");
+    const closeBtn = document.getElementById("close");
+
+    notification?.classList.add("notification-show");
+
+    var SECONDS = 0;
+    var showTime = () => {
+      SECONDS ++;
+      $("#notification-ecommerce-danger .btn-secondary").text(SECONDS);
+    };
+    $("#notification-ecommerce-danger .text-message-notification").text(TEXT);
+    var timer = setInterval(showTime, 1000);
+    setTimeout(() => {
+      clearInterval(timer);
+      document.getElementById("notification-ecommerce-danger")?.classList.remove("notification-show");
+    }, 6000);
+
+    closeBtn.addEventListener("click", () => {
+      document.getElementById("notification-ecommerce-danger")?.classList.remove("notification-show");
+    });
+}
+function alertWarning(TEXT){
+  const notification = document.getElementById("notification-ecommerce-warning");
+  const closeBtn = document.getElementById("close");
+
+  notification?.classList.add("notification-show");
+
+  var SECONDS = 0;
+  var showTime = () => {
+    SECONDS ++;
+    $("#notification-ecommerce-warning .btn-secondary").text(SECONDS);
+  };
+  $("#notification-ecommerce-warning .text-message-notification").text(TEXT);
+  var timer = setInterval(showTime, 1000);
+  setTimeout(() => {
+    clearInterval(timer);
+    document.getElementById("notification-ecommerce-warning")?.classList.remove("notification-show");
+  }, 6000);
+
+  closeBtn.addEventListener("click", () => {
+    document.getElementById("notification-ecommerce-warning")?.classList.remove("notification-show");
+  });
+}
+function alertSuccess(TEXT){
+  const notification = document.getElementById("notification-ecommerce-success");
+    const closeBtn = document.getElementById("close");
+
+    notification?.classList.add("notification-show");
+
+    var SECONDS = 0;
+    var showTime = () => {
+      SECONDS ++;
+      $("#notification-ecommerce-success .btn-secondary").text(SECONDS);
+    };
+    $("#notification-ecommerce-success .text-message-notification").text(TEXT);
+    var timer = setInterval(showTime, 1000);
+    setTimeout(() => {
+      clearInterval(timer);
+      document.getElementById("notification-ecommerce-success")?.classList.remove("notification-show");
+    }, 6000);
+
+    closeBtn.addEventListener("click", () => {
+      document.getElementById("notification-ecommerce-success")?.classList.remove("notification-show");
+    });
+}
