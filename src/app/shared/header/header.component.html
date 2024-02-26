@@ -563,58 +563,8 @@
                                 <!-- End Mega Menu  -->
                             </li>
   
-                            <li class="with-megamenu has-menu-child-item">
-                                <a href="#">Courses <i class="feather-chevron-down"></i></a>
-                                <!-- Start Mega Menu  -->
-                                <div class="rbt-megamenu grid-item-2">
-                                    <div class="wrapper">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="mega-top-banner">
-                                                    <div class="content">
-                                                        <h4 class="title">Developer hub</h4>
-                                                        <p class="description">Start building fast, with code samples, key resources and more.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row row--15">
-                                            <div class="col-lg-12 col-xl-6 col-xxl-6 single-mega-item">
-                                                <h3 class="rbt-short-title">Course Layout</h3>
-                                                <ul class="mega-menu-item">
-                                                    <li><a href="course-filter-one-toggle.html">Filter One Toggle</a></li>
-                                                    <li><a href="course-filter-one-open.html">Filter One Open</a></li>
-                                                    <li><a href="course-filter-two-toggle.html">Filter Two Toggle</a></li>
-                                                    <li><a href="course-filter-two-open.html">Filter Two Open</a></li>
-                                                    <li><a href="course-with-tab.html">Course With Tab</a></li>
-                                                    <li><a href="course-with-tab-two.html">Course With Tab Two</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-12 col-xl-6 col-xxl-6 single-mega-item">
-                                                <h3 class="rbt-short-title">Course Layout</h3>
-                                                <ul class="mega-menu-item">
-                                                    <li><a href="course-card-2.html">Course Card Two</a></li>
-                                                    <li><a href="course-card-3.html">Course Card Three</a></li>
-                                                    <li><a href="course-masonry.html">Course Masonry</a></li>
-                                                    <li><a href="course-with-sidebar.html">Course With Sidebar</a></li>
-                                                    <li><a href="course-details.html">Course Details</a></li>
-                                                    <li><a href="course-details-2.html">Course Details Two</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <ul class="nav-quick-access">
-                                                    <li><a href="#"><i class="feather-folder-minus"></i> Quick Start Guide</a></li>
-                                                    <li><a href="#"><i class="feather-folder-minus"></i> For Open Source</a></li>
-                                                    <li><a href="#"><i class="feather-folder-minus"></i> API Status</a></li>
-                                                    <li><a href="#"><i class="feather-folder-minus"></i> Support</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Mega Menu  -->
+                            <li class="with-megamenu">
+                                <a href="/listado-de-cursos">Cursos</a>
                             </li>
   
                             <li class="has-dropdown has-menu-child-item">
@@ -891,9 +841,9 @@
                         </li>
   
                         <li class="access-icon rbt-mini-cart">
-                            <a class="rbt-cart-sidenav-activation rbt-round-btn" href="#">
+                            <a class="rbt-cart-sidenav-activation rbt-round-btn" href="#" onclick="return false;">
                                 <i class="feather-shopping-cart"></i>
-                                <span class="rbt-cart-count">4</span>
+                                <span class="rbt-cart-count">{{listCart.length}}</span>
                             </a>
                         </li>
   
@@ -908,7 +858,7 @@
                                         </div>
                                         <div class="admin-info">
                                             <span class="name">{{ user.name }}</span>
-                                            <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a>
+                                            <a class="rbt-btn-link color-primary" href="/mi-perfil">View Profile</a>
                                         </div>
                                     </div>
                                     <ul class="user-list-wrapper" *ngIf="user">
@@ -1114,7 +1064,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <form action="#">
-                            <input type="text" placeholder="What are you looking for?">
+                            <input type="text" name="search" [(ngModel)]="search" (keyup.enter)="searchCourses()" #filter placeholder="What are you looking for?">
                             <div class="submit-btn">
                                 <a class="rbt-btn btn-gradient btn-md" href="#">Search</a>
                             </div>
@@ -1133,133 +1083,36 @@
                         </div>
                     </div>
   
-                    <!-- Start Single Card  -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="rbt-card variation-01 rbt-hover">
-                            <div class="rbt-card-img">
-                                <a href="course-details.html">
-                                    <img src="assets/images/course/course-online-01.jpg" alt="Card image">
-                                </a>
-                            </div>
-                            <div class="rbt-card-body">
-                                <h5 class="rbt-card-title"><a href="course-details.html">React Js</a>
-                                </h5>
-                                <div class="rbt-review">
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-count"> (15 Reviews)</span>
+                    <ng-container *ngFor="let COURSE of listCourses">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <div class="rbt-card variation-01 rbt-hover">
+                                <div class="rbt-card-img">
+                                    <a [href]="'landing-curso/'+COURSE.slug" target="_blank">
+                                        <img [src]="COURSE.image" alt="Card image">
+                                    </a>
                                 </div>
-                                <div class="rbt-card-bottom">
-                                    <div class="rbt-price">
-                                        <span class="current-price">$15</span>
-                                        <span class="off-price">$25</span>
+                                <div class="rbt-card-body">
+                                    <h5 class="rbt-card-title"><a [href]="'landing-curso/'+COURSE.slug" target="_blank">{{COURSE.title}}</a>
+                                    </h5>
+                                    <div class="rbt-review">
+                                        <div class="rating">
+                                            <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 1}"></i>
+                                            <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 2}"></i>
+                                            <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 3}"></i>
+                                            <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 4}"></i>
+                                            <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 5}"></i>
+                                        </div>
+                                        <span class="rating-count"> ({{COURSE.count_reviews}} Reviews)</span>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Card  -->
-  
-                    <!-- Start Single Card  -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="rbt-card variation-01 rbt-hover">
-                            <div class="rbt-card-img">
-                                <a href="course-details.html">
-                                    <img src="assets/images/course/course-online-02.jpg" alt="Card image">
-                                </a>
-                            </div>
-                            <div class="rbt-card-body">
-                                <h5 class="rbt-card-title"><a href="course-details.html">Java Program</a>
-                                </h5>
-                                <div class="rbt-review">
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-count"> (15 Reviews)</span>
-                                </div>
-                                <div class="rbt-card-bottom">
-                                    <div class="rbt-price">
-                                        <span class="current-price">$10</span>
-                                        <span class="off-price">$40</span>
+                                    <div class="rbt-card-bottom">
+                                        <div class="rbt-price">
+                                            <span class="current-price">${{COURSE.precio_mxn}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Single Card  -->
-  
-                    <!-- Start Single Card  -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="rbt-card variation-01 rbt-hover">
-                            <div class="rbt-card-img">
-                                <a href="course-details.html">
-                                    <img src="assets/images/course/course-online-03.jpg" alt="Card image">
-                                </a>
-                            </div>
-                            <div class="rbt-card-body">
-                                <h5 class="rbt-card-title"><a href="course-details.html">Web Design</a>
-                                </h5>
-                                <div class="rbt-review">
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-count"> (15 Reviews)</span>
-                                </div>
-                                <div class="rbt-card-bottom">
-                                    <div class="rbt-price">
-                                        <span class="current-price">$10</span>
-                                        <span class="off-price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Card  -->
-  
-                    <!-- Start Single Card  -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="rbt-card variation-01 rbt-hover">
-                            <div class="rbt-card-img">
-                                <a href="course-details.html">
-                                    <img src="assets/images/course/course-online-04.jpg" alt="Card image">
-                                </a>
-                            </div>
-                            <div class="rbt-card-body">
-                                <h5 class="rbt-card-title"><a href="course-details.html">Web Design</a>
-                                </h5>
-                                <div class="rbt-review">
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-count"> (15 Reviews)</span>
-                                </div>
-                                <div class="rbt-card-bottom">
-                                    <div class="rbt-price">
-                                        <span class="current-price">$20</span>
-                                        <span class="off-price">$40</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Card  -->
+                    </ng-container>
                 </div>
   
             </div>
@@ -2046,69 +1899,24 @@
         </div>
         <nav class="side-nav w-100">
             <ul class="rbt-minicart-wrapper">
-                <li class="minicart-item">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img src="assets/images/product/1.jpg" alt="Product Images">
-                        </a>
-                    </div>
-                    <div class="product-content">
-                        <h6 class="title"><a href="single-product.html">Miracle Morning</a></h6>
-  
-                        <span class="quantity">1 * <span class="price">$22</span></span>
-                    </div>
-                    <div class="close-btn">
-                        <button class="rbt-round-btn"><i class="feather-x"></i></button>
-                    </div>
-                </li>
-  
-                <li class="minicart-item">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img src="assets/images/product/7.jpg" alt="Product Images">
-                        </a>
-                    </div>
-                    <div class="product-content">
-                        <h6 class="title"><a href="single-product.html">Happy Strong</a></h6>
-  
-                        <span class="quantity">1 * <span class="price">$30</span></span>
-                    </div>
-                    <div class="close-btn">
-                        <button class="rbt-round-btn"><i class="feather-x"></i></button>
-                    </div>
-                </li>
-  
-                <li class="minicart-item">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img src="assets/images/product/3.jpg" alt="Product Images">
-                        </a>
-                    </div>
-                    <div class="product-content">
-                        <h6 class="title"><a href="single-product.html">Rich Dad Poor Dad</a></h6>
-  
-                        <span class="quantity">1 * <span class="price">$50</span></span>
-                    </div>
-                    <div class="close-btn">
-                        <button class="rbt-round-btn"><i class="feather-x"></i></button>
-                    </div>
-                </li>
-  
-                <li class="minicart-item">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img src="assets/images/product/4.jpg" alt="Product Images">
-                        </a>
-                    </div>
-                    <div class="product-content">
-                        <h6 class="title"><a href="single-product.html">Momentum Theorem</a></h6>
-  
-                        <span class="quantity">1 * <span class="price">$50</span></span>
-                    </div>
-                    <div class="close-btn">
-                        <button class="rbt-round-btn"><i class="feather-x"></i></button>
-                    </div>
-                </li>
+                <ng-container *ngFor="let cart of listCart">
+                    <li class="minicart-item">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img [src]="cart.course.image" alt="Product Images">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <h6 class="title"><a [href]="'/landing-curso/'+cart.course.slug">{{cart.course.title}}</a></h6>
+      
+                            <span class="quantity"><span class="price">${{cart.total}} MXN</span></span>
+                        </div>
+                        <div class="close-btn">
+                            <button class="rbt-round-btn" (click)="removeItem(cart)"><i class="feather-x"></i></button>
+                        </div>
+                    </li>
+                </ng-container>
+                
             </ul>
         </nav>
   
@@ -2116,19 +1924,13 @@
             <hr class="mb--0">
             <div class="rbt-cart-subttotal">
                 <p class="subtotal"><strong>Subtotal:</strong></p>
-                <p class="price">$121</p>
+                <p class="price">${{totalSum}} MXN</p>
             </div>
             <hr class="mb--0">
             <div class="rbt-minicart-bottom mt--20">
                 <div class="view-cart-btn">
-                    <a class="rbt-btn btn-border icon-hover w-100 text-center" href="#">
+                    <a class="rbt-btn btn-border icon-hover w-100 text-center" href="/carrito-de-compra">
                         <span class="btn-text">View Cart</span>
-                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                    </a>
-                </div>
-                <div class="checkout-btn mt--20">
-                    <a class="rbt-btn btn-gradient icon-hover w-100 text-center" href="#">
-                        <span class="btn-text">Checkout</span>
                         <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                     </a>
                 </div>

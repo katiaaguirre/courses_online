@@ -1,0 +1,482 @@
+<div class="rbt-cart-side-menu">
+    <div class="inner-wrapper">
+        <div class="inner-top">
+            <div class="content">
+                <div class="title">
+                    <h4 class="title mb--0">Your shopping cart</h4>
+                </div>
+                <div class="rbt-btn-close" id="btn_sideNavClose">
+                    <button class="minicart-close-button rbt-round-btn"><i class="feather-x"></i></button>
+                </div>
+            </div>
+        </div>
+        <nav class="side-nav w-100">
+            <ul class="rbt-minicart-wrapper">
+                <li class="minicart-item">
+                    <div class="thumbnail">
+                        <a href="#">
+                            <img src="assets/images/product/1.jpg" alt="Product Images">
+                        </a>
+                    </div>
+                    <div class="product-content">
+                        <h6 class="title"><a href="single-product.html">Miracle Morning</a></h6>
+
+                        <span class="quantity">1 * <span class="price">$22</span></span>
+                    </div>
+                    <div class="close-btn">
+                        <button class="rbt-round-btn"><i class="feather-x"></i></button>
+                    </div>
+                </li>
+
+                <li class="minicart-item">
+                    <div class="thumbnail">
+                        <a href="#">
+                            <img src="assets/images/product/7.jpg" alt="Product Images">
+                        </a>
+                    </div>
+                    <div class="product-content">
+                        <h6 class="title"><a href="single-product.html">Happy Strong</a></h6>
+
+                        <span class="quantity">1 * <span class="price">$30</span></span>
+                    </div>
+                    <div class="close-btn">
+                        <button class="rbt-round-btn"><i class="feather-x"></i></button>
+                    </div>
+                </li>
+
+                <li class="minicart-item">
+                    <div class="thumbnail">
+                        <a href="#">
+                            <img src="assets/images/product/3.jpg" alt="Product Images">
+                        </a>
+                    </div>
+                    <div class="product-content">
+                        <h6 class="title"><a href="single-product.html">Rich Dad Poor Dad</a></h6>
+
+                        <span class="quantity">1 * <span class="price">$50</span></span>
+                    </div>
+                    <div class="close-btn">
+                        <button class="rbt-round-btn"><i class="feather-x"></i></button>
+                    </div>
+                </li>
+
+                <li class="minicart-item">
+                    <div class="thumbnail">
+                        <a href="#">
+                            <img src="assets/images/product/4.jpg" alt="Product Images">
+                        </a>
+                    </div>
+                    <div class="product-content">
+                        <h6 class="title"><a href="single-product.html">Momentum Theorem</a></h6>
+
+                        <span class="quantity">1 * <span class="price">$50</span></span>
+                    </div>
+                    <div class="close-btn">
+                        <button class="rbt-round-btn"><i class="feather-x"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rbt-minicart-footer">
+            <hr class="mb--0">
+            <div class="rbt-cart-subttotal">
+                <p class="subtotal"><strong>Subtotal:</strong></p>
+                <p class="price">$121</p>
+            </div>
+            <hr class="mb--0">
+            <div class="rbt-minicart-bottom mt--20">
+                <div class="view-cart-btn">
+                    <a class="rbt-btn btn-border icon-hover w-100 text-center" href="#">
+                        <span class="btn-text">View Cart</span>
+                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                    </a>
+                </div>
+                <div class="checkout-btn mt--20">
+                    <a class="rbt-btn btn-gradient icon-hover w-100 text-center" href="#">
+                        <span class="btn-text">Checkout</span>
+                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Side Vav -->
+<a class="close_side_menu" href="javascript:void(0);"></a>
+
+<div class="rbt-page-banner-wrapper">
+    <!-- Start Banner BG Image  -->
+    <div class="rbt-banner-image"></div>
+    <!-- End Banner BG Image  -->
+    <div class="rbt-banner-content">
+        <!-- Start Banner Content Top  -->
+        <div class="rbt-banner-content-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Start Breadcrumb Area  -->
+                        <ul class="page-list">
+                            <li class="rbt-breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li>
+                                <div class="icon-right"><i class="feather-chevron-right"></i></div>
+                            </li>
+                            <li class="rbt-breadcrumb-item active">All Courses</li>
+                        </ul>
+                        <!-- End Breadcrumb Area  -->
+
+                        <div class=" title-wrapper">
+                            <h1 class="title mb--0">All Courses</h1>
+                            <a href="#" class="rbt-badge-2">
+                                <div class="image">🎉</div> 50 Courses
+                            </a>
+                        </div>
+                        <p class="description">Courses that help beginner designers become true unicorns. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Banner Content Top  -->
+        <!-- Start Course Top  -->
+        <div class="rbt-course-top-wrapper mt--40">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-12">
+                        <div class="rbt-sorting-list">
+                            <div class="rbt-short-item switch-layout-container d-flex justify-content-between">
+                                <ul class="course-switch-layout">
+                                    <li class="course-switch-item"><button class="rbt-grid-view" [ngClass]="{'active': selected_grid == 1}" title="No filters" (click)="addOption(1)"><i class="feather-grid"></i> <span class="text"> Ocultar filtros</span></button></li>
+                                    <li class="course-switch-item"><button class="rbt-list-view" [ngClass]="{'active': selected_grid == 2}" title="Filters" (click)="addOption(2)"><i class="feather-list"></i> <span class="text"> Filtros</span></button></li>
+                                </ul>
+                                <ul class="course-switch-layout">
+                                    <li class="course-switch-item"><button class="rbt-grid-view" [ngClass]="{'active': selected_option == 1}" title="Grid Layout" (click)="addMode(1)"><i class="feather-grid"></i> <span class="text"> Grid</span></button></li>
+                                    <li class="course-switch-item"><button class="rbt-list-view" [ngClass]="{'active': selected_option == 2}" title="List Layout" (click)="addMode(2)"><i class="feather-list"></i> <span class="text"> List</span></button></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="rbt-short-item">
+                                <span class="course-index">Showing 1-9 of 19 results</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" *ngIf="selected_grid == 2">
+                        <div class="rbt-sidebar-widget-wrapper filter-top-2 mt--60">
+                            <div class="row g-5">
+                                <!-- Start Widget Area  -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                    <div class="rbt-single-widget rbt-widget-categories has-show-more">
+                                        <div class="inner">
+                                            <h4 class="rbt-widget-title-2">Categories</h4>
+                                            <ul class="rbt-sidebar-list-wrapper categories-list-check has-show-more-inner-content">
+                                                <ng-container *ngFor="let CATEGORY of CATEGORIES">
+                                                    <li class="rbt-check-group">
+                                                        <input [id]="'cat-list-'+CATEGORY.id" type="checkbox" [name]="'cat-list-'+CATEGORY.id" (click)="addCategory(CATEGORY.id)">
+                                                        <label [attr.for]="'cat-list-'+CATEGORY.id">{{CATEGORY.name}} <span class="rbt-lable count">{{CATEGORY.count_courses}}</span></label>
+                                                    </li>
+                                                </ng-container>
+                                            </ul>
+                                        </div>
+                                        <div class="rbt-show-more-btn">Show More</div>
+                                    </div>
+                                </div>
+                                <!-- End Widget Area  -->
+
+                                <!-- Start Widget Area  -->
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <div class="rbt-single-widget rbt-widget-rating">
+                                        <div class="inner">
+                                            <h4 class="rbt-widget-title-2">Ratings</h4>
+                                            <ul class="rbt-sidebar-list-wrapper rating-list-check">
+                                                <li class="rbt-check-group">
+                                                    <input id="cat-radio-1" type="radio" name="rbt-radio" (click)="selectedRating(5)">
+                                                    <label for="cat-radio-1">
+                                                        <span class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                                                        <span class="rbt-lable count">5</span>
+                                                    </label>
+                                                </li>
+                                                <li class="rbt-check-group">
+                                                    <input id="cat-radio-2" type="radio" name="rbt-radio" (click)="selectedRating(4)">
+                                                    <label for="cat-radio-2">
+                                                        <span class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                    </span>
+                                                        <span class="rbt-lable count">4</span>
+                                                    </label>
+                                                </li>
+                                                <li class="rbt-check-group">
+                                                    <input id="cat-radio-3" type="radio" name="rbt-radio" (click)="selectedRating(3)">
+                                                    <label for="cat-radio-3">
+                                                        <span class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                    </span>
+                                                        <span class="rbt-lable count">3</span>
+                                                    </label>
+                                                </li>
+                                                <li class="rbt-check-group">
+                                                    <input id="cat-radio-4" type="radio" name="rbt-radio" (click)="selectedRating(2)">
+                                                    <label for="cat-radio-4">
+                                                        <span class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                    </span>
+                                                        <span class="rbt-lable count">2</span>
+                                                    </label>
+                                                </li>
+
+                                                <li class="rbt-check-group">
+                                                    <input id="cat-radio-5" type="radio" name="rbt-radio" (click)="selectedRating(1)">
+                                                    <label for="cat-radio-5">
+                                                        <span class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                        <i class="off fas fa-star"></i>
+                    </span>
+                                                        <span class="rbt-lable count">1</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                    <div class="filter-select-option">
+                                        <div class="filter-select">
+                                            <span class="select-label d-block">Price Range</span>
+        
+                                            <div class="price_filter s-filter clear">
+                                                <form action="#" method="GET">
+                                                    <div id="slider-range"></div>
+                                                    <div class="slider__range--output">
+                                                        <div class="price__output--wrap">
+                                                            <div class="price--output">
+                                                                <span>Price :</span><input type="text" id="amount">
+                                                            </div>
+                                                            <div class="price--filter">
+                                                                <a class="rbt-btn btn-gradient btn-sm" href="#">Filter</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+        
+        
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Widget Area  -->
+
+                                <!-- Start Widget Area  -->
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <div class="rbt-single-widget rbt-widget-lavels">
+                                        <div class="inner">
+                                            <h4 class="rbt-widget-title-2">Levels</h4>
+                                            <ul class="rbt-sidebar-list-wrapper lavels-list-check">
+                                                <ng-container *ngFor="let LEVEL of LEVELS;let i=index">
+                                                    <li class="rbt-check-group">
+                                                        <input [id]="'lavels-list-'+i" type="checkbox" [name]="'lavels-list-'+i" (click)="addLevel(LEVEL)">
+                                                        <label [attr.for]="'lavels-list-'+i">{{LEVEL}}</label>
+                                                    </li>
+                                                </ng-container>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Widget Area  -->
+
+                                <!-- Start Widget Area  -->
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <div class="rbt-single-widget rbt-widget-features">
+                                        <div class="inner">
+                                            <h4 class="rbt-widget-title-2">Idiomas</h4>
+                                            <ul class="rbt-sidebar-list-wrapper features-list-check">
+                                                <ng-container *ngFor="let IDIOMA of IDIOMAS;let i=index">
+                                                    <li class="rbt-check-group">
+                                                        <input [id]="'features-list-'+i" type="checkbox" [name]="'features-list-'+i" (click)="addIdioma(IDIOMA)">
+                                                        <label [attr.for]="'features-list-'+i">{{IDIOMA}}</label>
+                                                    </li>
+                                                </ng-container>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Widget Area  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Course Top  -->
+    </div>
+</div>
+
+<!-- Start Card Style -->
+<div class="rbt-section-overlayping-top rbt-section-gapBottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="rbt-course-grid-column">
+                    <ng-container *ngIf="selected_option == 1">
+                        <div class="course-grid-3" *ngFor="let COURSE of LISTCOURSES">
+                            <div class="rbt-card variation-01 rbt-hover">
+                                <div class="rbt-card-img">
+                                    <a [routerLink]="['landing-curso/',COURSE.slug]">
+                                        <img [src]="COURSE.image" alt="Card image">
+                                            <div class="rbt-badge-3 bg-white" *ngIf="COURSE.discount_g">
+                                            <span *ngIf="COURSE.discount_g.type_discount == 1">-{{COURSE.discount_g.discount}}%</span>
+                                            <span *ngIf="COURSE.discount_g.type_discount == 2">-{{COURSE.discount_g.discount}} MXN</span>
+                                            <span>Off</span>
+                                            </div>
+                                    </a>
+                                </div>
+                                <div class="rbt-card-body">
+                                    <div class="rbt-card-top">
+                                        <div class="rbt-review">
+                                            <div class="rating">
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 1}"></i>
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 2}"></i>
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 3}"></i>
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 4}"></i>
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 5}"></i>
+                                            </div>
+                                            <span class="rating-count"> ({{COURSE.count_reviews}} Reviews)</span>
+                                        </div>
+                                        <div class="rbt-bookmark-btn">
+                                            <a class="rbt-round-btn" title="Bookmark" href="#"><i class="feather-bookmark"></i></a>
+                                        </div>
+                                    </div>
+                                    <h4 class="rbt-card-title"><a [routerLink]="['landing-curso/',COURSE.slug]">{{COURSE.title}}</a>
+                                    </h4>
+                                    <ul class="rbt-meta">
+                                        <li><i class="feather-book"></i>{{COURSE.count_class}} Lessons</li>
+                                        <li><i class="feather-users"></i>{{COURSE.count_students}} Students</li>
+                                        <li><i class="feather-play"></i>{{COURSE.course_time}}</li>
+                                    </ul>
+                                    <p class="rbt-card-text">{{COURSE.subtitle}}</p>
+                                    <div class="rbt-author-meta mb--20">
+                                        <div class="rbt-avater">
+                                            <a href="#">
+                                                <img [src]="COURSE.instructor.avatar" alt="Sophia Jaymes">
+                                            </a>
+                                        </div>
+                                        <div class="rbt-author-info">
+                                            By <a href="profile.html">{{COURSE.instructor.full_name}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="rbt-card-bottom">
+                                        <div class="rbt-price">
+                                            <span class="current-price">{{getTotalPriceCourse(COURSE)}} MXN</span>
+                                            <span class="off-price" *ngIf="COURSE.discount_g">{{COURSE.precio_mxn}} MXN</span>
+                                        </div>
+                                        <a class="rbt-btn-link" href="#" onclick="return false;" (click)="addCart(COURSE)">
+                                            <i class="feather-shopping-cart"></i> Añadir al carrito
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="selected_option == 2">
+                        <div class="col-12" *ngFor="let COURSE of LISTCOURSES">
+
+                            <div class="rbt-card row">
+                                <div class="rbt-card-img col-3">
+                                    <a [routerLink]="['landing-curso/',COURSE.slug]">
+                                        <img [src]="COURSE.image" alt="Card image">
+                                            <div class="rbt-badge-3 bg-white" *ngIf="COURSE.discount_g">
+                                            <span *ngIf="COURSE.discount_g.type_discount == 1">-{{COURSE.discount_g.discount}}%</span>
+                                            <span *ngIf="COURSE.discount_g.type_discount == 2">-{{COURSE.discount_g.discount}} MXN</span>
+                                            <span>Off</span>
+                                            </div>
+                                    </a>
+                                </div>
+                                <div class="rbt-card-body no-padding-top col-9">
+                                    <div class="rbt-card-top">
+                                        <div class="rbt-review">
+                                            <div class="rating">
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 1}"></i>
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 2}"></i>
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 3}"></i>
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 4}"></i>
+                                                <i class="fas fa-star" [ngClass]="{'ratingT': COURSE.avg_review < 5}"></i>
+                                            </div>
+                                            <span class="rating-count"> ({{COURSE.count_reviews}} Reviews)</span>
+                                        </div>
+                                        <div class="rbt-bookmark-btn">
+                                            <a class="rbt-round-btn" title="Bookmark" href="#"><i class="feather-bookmark"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="rbt-card-top">
+                                        <h4 class="rbt-card-title"><a [routerLink]="['landing-curso/',COURSE.slug]">{{COURSE.title}}</a>
+                                        </h4>
+                                        <div class="rbt-price">
+                                            <span class="off-price mr-c" *ngIf="COURSE.discount_g">{{COURSE.precio_mxn}} MXN</span>
+                                            <span class="current-price">{{getTotalPriceCourse(COURSE)}} MXN</span>
+                                        </div>
+                                    </div>
+                                    <p class="rbt-card-text">{{COURSE.subtitle}}</p>
+                                    <div class="rbt-author-meta mb--20">
+                                        <div class="rbt-avater">
+                                            <a href="#">
+                                                <img [src]="COURSE.instructor.avatar" alt="Sophia Jaymes">
+                                            </a>
+                                        </div>
+                                        <div class="rbt-author-info">
+                                            By <a href="profile.html">{{COURSE.instructor.full_name}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="rbt-card-bottom">
+                                        <ul class="rbt-meta">
+                                            <li><i class="feather-book"></i>{{COURSE.count_class}} Lessons</li>
+                                            <li><i class="feather-users"></i>{{COURSE.count_students}} Students</li>
+                                            <li><i class="feather-play"></i>{{COURSE.course_time}}</li>
+                                        </ul>
+                                        <a class="rbt-btn-link" href="#" onclick="return false;" (click)="addCart(COURSE)">
+                                            <i class="feather-shopping-cart"></i> Añadir al carrito
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 mt--60">
+                        <nav>
+                            <ul class="rbt-pagination">
+                                <li><a href="#" aria-label="Previous"><i class="feather-chevron-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#" aria-label="Next"><i class="feather-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

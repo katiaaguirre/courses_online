@@ -60,7 +60,7 @@
                                         <div class="rbt-card-body">
                                             <ul class="rbt-meta">
                                                 <li><i class="feather-book"></i>{{COURSE.count_class}} Lessons</li>
-                                                <li><i class="feather-users"></i>50 Students</li>
+                                                <li><i class="feather-users"></i>{{COURSE.course_students}} Students</li>
                                                 <li><i class="feather-play"></i>{{COURSE.course_time}}</li>
                                             </ul>
                                             <h4 class="rbt-card-title"><a [routerLink]="['landing-curso/',COURSE.slug]" [queryParams]="{'campaign_discount': DISCOUNT_BANNER.id}">{{COURSE.title}}</a>
@@ -68,21 +68,22 @@
                                             <p class="rbt-card-text">{{COURSE.subtitle}}</p>
                                             <div class="rbt-review">
                                                 <div class="rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 1}"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 2}"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 3}"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 4}"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 5}"></i>
                                                 </div>
-                                                <span class="rating-count"> (15 Reviews)</span>
+                                                <span class="rating-count"> ({{COURSE.count_reviews}} Reviews)</span>
                                             </div>
                                             <div class="rbt-card-bottom">
                                                 <div class="rbt-price">
                                                     <span class="current-price">${{getNewTotal(COURSE,DISCOUNT_BANNER)}} MXN</span>
                                                     <span class="off-price">{{COURSE.precio_mxn}} MXN</span>
                                                 </div>
-                                                <a class="rbt-btn-link" [routerLink]="['landing-curso/',COURSE.slug]" [queryParams]="{'campaign_discount': DISCOUNT_BANNER.id}">Learn More<i
-                                                        class="feather-arrow-right"></i></a>
+                                                <a class="rbt-btn-link" href="#" onclick="return false;" (click)="addCart(COURSE,DISCOUNT_BANNER)">
+                                                    <i class="feather-shopping-cart"></i> Añadir al carrito
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -168,7 +169,7 @@
                             <div class="col-md-6 col-sm-12 col-12 py-3">
                                 <div class="rbt-card variation-01 rbt-hover">
                                     <div class="rbt-card-img">
-                                        <a [routerLink]="['landing-curso/',COURSE.slug]">
+                                        <a [routerLink]="['landing-curso/',COURSE.slug]" [queryParams]="{'campaign_discount': DISCOUNT_FLASH.id}">
                                             <img [src]="COURSE.image" alt="Card image">
                                             <div class="rbt-badge-3 bg-white">
                                                 <span *ngIf="DISCOUNT_FLASH.type_discount == 1">-{{DISCOUNT_FLASH.discount}}%</span>
@@ -181,13 +182,13 @@
                                         <div class="rbt-card-top">
                                             <div class="rbt-review">
                                                 <div class="rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 1}"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 2}"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 3}"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 4}"></i>
+                                                    <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 5}"></i>
                                                 </div>
-                                                <span class="rating-count"> (15 Reviews)</span>
+                                                <span class="rating-count"> ({{COURSE.count_reviews}} Reviews)</span>
                                             </div>
                                             <div class="rbt-bookmark-btn">
                                                 <a class="rbt-round-btn" title="Bookmark" href="#"><i
@@ -206,8 +207,9 @@
                                                 <span class="current-price">${{getNewTotal(COURSE,DISCOUNT_FLASH)}} MXN</span>
                                                     <span class="off-price">{{COURSE.precio_mxn}} MXN</span>
                                             </div>
-                                            <a class="rbt-btn-link" [routerLink]="['landing-curso/',COURSE.slug]" [queryParams]="{'campaign_discount': DISCOUNT_FLASH.id}">Learn
-                                                More<i class="feather-arrow-right"></i></a>
+                                            <a class="rbt-btn-link" href="#" onclick="return false;" (click)="addCart(COURSE,DISCOUNT_FLASH)">
+                                                <i class="feather-shopping-cart"></i> Añadir al carrito
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -250,13 +252,13 @@
                             <div class="rbt-card-top">
                                 <div class="rbt-review">
                                     <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 1}"></i>
+                                        <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 2}"></i>
+                                        <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 3}"></i>
+                                        <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 4}"></i>
+                                        <i class="fas fa-star" [ngClass]="{'rating': COURSE.avg_review < 5}"></i>
                                     </div>
-                                    <span class="rating-count"> (15 Reviews)</span>
+                                    <span class="rating-count"> ({{COURSE.count_reviews}} Reviews)</span>
                                 </div>
                                 <div class="rbt-bookmark-btn">
                                     <a class="rbt-round-btn" title="Bookmark" href="#"><i class="feather-bookmark"></i></a>
@@ -266,7 +268,7 @@
                             </h4>
                             <ul class="rbt-meta">
                                 <li><i class="feather-book"></i>{{COURSE.count_class}} Lessons</li>
-                                <li><i class="feather-users"></i>50 Students</li>
+                                <li><i class="feather-users"></i>{{COURSE.count_students}} Students</li>
                                 <li><i class="feather-play"></i>{{COURSE.course_time}}</li>
                             </ul>
                             <p class="rbt-card-text">{{COURSE.subtitle}}</p>
@@ -285,7 +287,9 @@
                                     <span class="current-price">{{getTotalPriceCourse(COURSE)}} MXN</span>
                                     <span class="off-price" *ngIf="COURSE.discount_g">{{COURSE.precio_mxn}} MXN</span>
                                 </div>
-                                <a class="rbt-btn-link left-icon" [routerLink]="['landing-curso/',COURSE.slug]"><i class="feather-shopping-cart"></i> Add To Cart</a>
+                                <a class="rbt-btn-link" href="#" onclick="return false;" (click)="addCart(COURSE)">
+                                    <i class="feather-shopping-cart"></i> Añadir al carrito
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1023,13 +1027,13 @@
                                             <div class="rbt-card-top">
                                                 <div class="rbt-review">
                                                     <div class="rating">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star" [ngClass]="{'rating': courses.avg_review < 1}"></i>
+                                                        <i class="fas fa-star" [ngClass]="{'rating': courses.avg_review < 2}"></i>
+                                                        <i class="fas fa-star" [ngClass]="{'rating': courses.avg_review < 3}"></i>
+                                                        <i class="fas fa-star" [ngClass]="{'rating': courses.avg_review < 4}"></i>
+                                                        <i class="fas fa-star" [ngClass]="{'rating': courses.avg_review < 5}"></i>
                                                     </div>
-                                                    <span class="rating-count"> (15 Reviews)</span>
+                                                    <span class="rating-count"> ({{courses.count_reviews}} Reviews)</span>
                                                 </div>
                                                 <div class="rbt-bookmark-btn">
                                                     <a class="rbt-round-btn" title="Bookmark" href="#"><i
@@ -1040,7 +1044,7 @@
                                             </h4>
                                             <ul class="rbt-meta">
                                                 <li><i class="feather-book"></i>{{courses.count_class}} Lessons</li>
-                                                <li><i class="feather-users"></i>40 Students</li>
+                                                <li><i class="feather-users"></i>{{courses.count_students}} Students</li>
                                                 <li><i class="feather-play"></i>{{courses.course_time}}</li>
                                             </ul>
       
@@ -1048,8 +1052,9 @@
                                                 <div class="rbt-price">
                                                     <span class="current-price">${{courses.precio_mxn}} MXN</span>
                                                 </div>
-                                                <a class="rbt-btn-link" [routerLink]="['landing-curso/',courses.slug]">Learn
-                                                    More<i class="feather-arrow-right"></i></a>
+                                                <a class="rbt-btn-link" href="#" onclick="return false;" (click)="addCart(courses)">
+                                                    <i class="feather-shopping-cart"></i> Añadir al carrito
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

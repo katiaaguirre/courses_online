@@ -24045,7 +24045,6 @@ blockquote.has-text-align-right cite,
   display: block;
 }
 .rbt-minicart-wrapper .thumbnail a img {
-  width: 80px;
   height: 80px;
   border-radius: var(--radius);
 }

@@ -2,3 +2,7 @@
     background-color: #807bf2;
     border-radius: 10px;
 }
+.rating{
+    color: gray !important;
+    margin-right: 2px;
+}
